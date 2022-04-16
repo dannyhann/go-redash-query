@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go-redash-query"
+	"github.com/dannyhann/go-redash-query"
 	"log"
 )
 
