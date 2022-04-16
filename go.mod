@@ -1,4 +1,4 @@
-module go-redash-query
+module github.com/dannyhann/go-redash-query
 
 go 1.17
 
