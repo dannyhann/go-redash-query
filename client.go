@@ -73,6 +73,11 @@ func (c *Client) CreateJobWithQuery(queryId int, queryData QueryData) (*JobInfo,
 }
 
 func (c *Client) Fetch(job *JobInfo) (*FetchedData, error) {
+	if job.hasCachedResult() {
+		return &FetchedData{
+			QueryResult: job.QueryResult,
+		}, nil
+	}
 
 	for {
 		err := c.check(job)

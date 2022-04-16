@@ -19,8 +19,13 @@ type Job struct {
 }
 
 type JobInfo struct {
-	Message string `json:"message,omitempty"`
-	Job     `json:"job"`
+	QueryResult `json:"query_result,omitempty"`
+	Message     string `json:"message,omitempty"`
+	Job         `json:"job"`
+}
+
+func (j *JobInfo) hasCachedResult() bool {
+	return j.QueryResult.Id != 0
 }
 
 func (j *JobInfo) isSuccess() bool {

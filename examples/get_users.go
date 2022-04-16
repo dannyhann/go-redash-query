@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/mitchellh/mapstructure"
 	"go-redash-query"
 	"log"
 )
@@ -42,18 +41,17 @@ func main() {
 
 	job, err := client.CreateJobWithQuery(redashQueryId, queryData)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("CreateJobWithQuery %s", err)
 	}
 
 	fetchedData, err := client.Fetch(job)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("Fetch %s", err)
 	}
 
 	users := make([]TestUserData, 0)
-	rows := fetchedData.GetData()
 
-	err = mapstructure.Decode(rows, &users)
+	err = fetchedData.GetDataWithStruct(&users)
 	if err != nil {
 		log.Fatal(err)
 	}
