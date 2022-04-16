@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/dannyhann/go-redash-query"
 	"github.com/mitchellh/mapstructure"
+	"go-redash-query"
 	"log"
 )
 
