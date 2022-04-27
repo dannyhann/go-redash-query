@@ -50,9 +50,9 @@ func main() {
 
 	queryData := go_redash_query.QueryData{
 		MaxAge: 10,
-		Parameters: go_redash_query.Parameters{
-			Id:   1,
-			Size: 20,
+		Parameters: go_redash_query.P{
+			"id":   1,
+			"size": 20,
 		},
 	}
 
