@@ -1,13 +1,16 @@
 package go_redash_query
 
+type P map[string]interface{}
+
+// Parameters Deprecated
 type Parameters struct {
 	Id   int `json:"id" `
 	Size int `json:"size"`
 }
 
 type QueryData struct {
-	Parameters Parameters `json:"parameters"`
-	MaxAge     int        `json:"max_age"`
+	Parameters interface{} `json:"parameters"`
+	MaxAge     int         `json:"max_age"`
 }
 
 type Job struct {
